@@ -58,6 +58,7 @@ dependencies {
   runtime("ca.cutterslade.gradle:gradle-dependency-analyze:1.4.3")                                     // Enable dep analysis
   runtime("gradle.plugin.net.ossindex:ossindex-gradle-plugin:0.4.11")                                  // Enable dep vulnerability analysis
   runtime("org.checkerframework:checkerframework-gradle-plugin:0.5.16")                                 // Enable enhanced static checking plugin
+  runtime("org.apache.solr:solr-solrj:8.5.2")
 }
 
 // Because buildSrc is built and tested automatically _before_ gradle
@@ -67,8 +68,8 @@ dependencies {
 //
 // ./gradlew :buildSrc:spotlessApply -PdisableSpotlessCheck=true
 val disableSpotlessCheck: String by project
-val isSpotlessCheckDisabled = project.hasProperty("disableSpotlessCheck") &&
-        disableSpotlessCheck == "true"
+val isSpotlessCheckDisabled = true
+//project.hasProperty("disableSpotlessCheck") && disableSpotlessCheck == "true"
 
 spotless {
   isEnforceCheck = !isSpotlessCheckDisabled

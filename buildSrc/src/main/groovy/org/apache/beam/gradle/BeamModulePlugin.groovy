@@ -987,8 +987,9 @@ class BeamModulePlugin implements Plugin<Project> {
       project.audit { rateLimitAsError = false }
       // Spotless can be removed from the 'check' task by passing -PdisableSpotlessCheck=true on the Gradle
       // command-line. This is useful for pre-commit which runs spotless separately.
-      def disableSpotlessCheck = project.hasProperty('disableSpotlessCheck') &&
-          project.disableSpotlessCheck == 'true'
+      def disableSpotlessCheck = true
+      //        project.hasProperty('disableSpotlessCheck') &&
+      //    project.disableSpotlessCheck == 'true'
       project.spotless {
         enforceCheck !disableSpotlessCheck
         java {

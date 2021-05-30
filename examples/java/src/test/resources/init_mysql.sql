@@ -1,0 +1,1 @@
+CREATE TABLE test (field1 varchar(200) NOT NULL,  field2 varchar(200) DEFAULT NULL, PRIMARY KEY (field1))
