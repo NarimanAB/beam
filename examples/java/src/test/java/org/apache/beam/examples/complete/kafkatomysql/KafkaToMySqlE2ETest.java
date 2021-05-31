@@ -88,6 +88,7 @@ public class KafkaToMySqlE2ETest {
 			resultSet.next();
 			int count = resultSet.getInt(1);
 			Assert.assertEquals(3, count);
+			Assert.assertEquals(PipelineResult.State.RUNNING, job.getState());
 
 		} catch (UnsupportedOperationException e) {
 			throw new AssertionError("Could not stop pipeline.", e);
